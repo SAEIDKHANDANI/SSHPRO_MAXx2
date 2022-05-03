@@ -1,0 +1,123 @@
+#!/bin/bash
+clear
+rootpass () {
+clear
+[[ "$(whoami)" != "root" ]] && {
+	clear
+	echo -e "\033[1;31mEXECULTE COMO USUARIO ROOT, \033[1;32m(\033[1;33msudo -i\033[1;32m)\033[0m"
+	exit
+}
+[[ $(grep -c "prohibit-password" /etc/ssh/sshd_config) != '0' ]] && {
+	sed -i "s/prohibit-password/yes/g" /etc/ssh/sshd_config
+} > /dev/null
+[[ $(grep -c "without-password" /etc/ssh/sshd_config) != '0' ]] && {
+	sed -i "s/without-password/yes/g" /etc/ssh/sshd_config
+} > /dev/null
+[[ $(grep -c "#PermitRootLogin" /etc/ssh/sshd_config) != '0' ]] && {
+	sed -i "s/#PermitRootLogin/PermitRootLogin/g" /etc/ssh/sshd_config
+} > /dev/null
+[[ $(grep -c "PasswordAuthentication" /etc/ssh/sshd_config) = '0' ]] && {
+	echo 'PasswordAuthentication yes' > /etc/ssh/sshd_config
+} > /dev/null
+[[ $(grep -c "PasswordAuthentication no" /etc/ssh/sshd_config) != '0' ]] && {
+	sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
+} > /dev/null
+[[ $(grep -c "#PasswordAuthentication no" /etc/ssh/sshd_config) != '0' ]] && {
+	sed -i "s/#PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
+} > /dev/null
+service ssh restart > /dev/null
+iptables -F
+iptables -A INPUT -p tcp --dport 81 -j ACCEPT
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+iptables -A INPUT -p tcp --dport 8799 -j ACCEPT
+iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
+iptables -A INPUT -p tcp --dport 1194 -j ACCEPT
+clear && echo -ne "\033[1;32mDEFINA A SENHA ROOT\033[1;37m: "; read senha
+[[ -z "$senha" ]] && {
+echo -e "\n\033[1;31mSENHA INVALIDA !\033[0m"
+exit 0
+}
+echo "root:$senha" | chpasswd
+echo -e "\n\033[1;31m[ \033[1;33mOK ! \033[1;31m]\033[1;37m - \033[1;32mSENHA DEFINIDA ! \033[0m"
+clear
+}
+root () {
+clear
+echo -e "\033[1;31mATENCAO!!\033[0m"
+echo " "
+echo -e "\033[1;33mDigite sua nova senha root\033[0m"
+echo ""
+echo -e "\033[1;32mDIGITE A NOVA SENHA \033[1;32m
+para continuar...\033[1;31m\033[0m"
+read  -p : pass
+(echo $pass; echo $pass)|passwd 2>/dev/null
+sleep 1s
+echo -e "\033[1;31mSENHA ALTERADA COM SUCESSO!\033[0m"
+sleep 5s
+systemctl restart sshd
+cd
+clear
+}
+manual () {
+clear
+nano /etc/ssh/sshd_config
+clear
+echo -e "\033[1;31mATENCAO!!\033[0m"
+echo " "
+echo -e "\033[1;33mDigite sua nova senha root\033[0m"
+echo ""
+echo -e "\033[1;32mDIGITE A NOVA SENHA \033[1;32m
+para continuar...\033[1;31m\033[0m"
+read  -p : pass
+(echo $pass; echo $pass)|passwd 2>/dev/null
+sleep 1s
+echo -e "\033[1;31mSENHA ALTERADA COM SUCESSO!\033[0m"
+sleep 5s
+systemctl restart sshd
+cd
+clear
+}
+while true $x != "ok"
+do
+clear
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\E[44;1;37m               ○ GERENCIADOR ROOT○            \E[0m"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31m  [\033[1;36m 01 \033[1;31m] \033[1;37m• \033[1;33mHABILITAR ACESSO ROOT
+\033[1;31m  [\033[1;36m 02 \033[1;31m] \033[1;37m• \033[1;33mHABILITAR ACESSO ROOT MANUAL 
+\033[1;31m  [\033[1;36m 03 \033[1;31m] \033[1;37m• \033[1;33mMUDAR SENHA ROOT
+\033[1;31m  [\033[1;36m 00 \033[1;31m] \033[1;37m• \033[1;37mSAIR"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo ""
+echo -ne "\033[1;32mO QUE DESEJA FAZER \033[1;31m?\033[1;37m : "; read x
+
+case "$x" in 
+   1 | 01)
+   clear
+   rootpass
+   exit;
+   ;;
+   2 | 02)
+   clear
+   manual
+   exit;
+   ;;
+    3 | 03)
+   clear
+   root
+   exit;
+   ;;
+   0 | 00)
+   echo -e "\033[1;31mSaindo...\033[0m"
+   sleep 2
+   clear
+   exit;
+   ;;
+   *)
+   echo -e "\n\033[1;31mOpcao invalida !\033[0m"
+   sleep 2
+esac
+done
+}
+#fim

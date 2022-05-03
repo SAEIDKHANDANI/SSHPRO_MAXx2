@@ -1,0 +1,143 @@
+#!/bin/bash
+#=================================================#
+#SCRIPT MONTADO POR: ELIJAHSSH
+#=================================================#
+clear
+installbot () {
+clear
+echo -e "\E[44;1;37m     INSTALACAO BOT SSH TESTE     \E[0m"
+echo -e "\nINSTALANDO AGUARDE...."
+apt update -y > /dev/null 2>&1 && apt install unzip at jq curl -y > /dev/null 2>&1
+mkdir $HOME/BOT
+cd $HOME/BOT && wget https://www.dropbox.com/s/g25egfqmbxigto2/botteste.zip
+unzip botteste.zip > /dev/null 2>&1 && rm botteste.zip > /dev/null 2>&1
+chmod +x $(ls)
+echo -e "\033[1;32m BOT TESTE INSTALADO!"
+rm -rf $HOME/.wget-hsts > /dev/null 2>&1
+clear
+sleep 3
+bottestee
+}
+nbot () {
+clear
+[[ $(screen -list| grep -c 'bot_teste') == '0' ]] && {
+    clear
+    echo -e "\E[44;1;37m     ATIVACÃO BOT SSH TESTE     \E[0m"
+    echo ""
+    echo -ne "\n\033[1;32mINFORME O TOKEN\033[1;37m: "; read token
+    cd $HOME/BOT
+    screen -dmS bot_teste ./botsshteste $token > /dev/null 2>&1
+    clear && echo "BOT ATIVADO"
+    menu
+} || {
+    screen -r -S "bot_teste" -X quit
+    clear && echo "BOT DESATIVADO"
+    menu
+}
+}
+sbot () {
+clear
+    clear
+    echo -e "\E[44;1;37m     CONFIGURACAO BOT SSH TESTE     \E[0m"
+    echo ""
+    echo -ne "\033[1;31m====PREENCHA AS INFORMACOES DO BOT===="
+    echo ""
+    echo ""
+    echo -ne "\033[1;32mMENSAGEM DO ADM:\033[1;37m "
+    read bvindo
+    echo ""
+    echo -ne "\033[1;32mMENSAGEM FINAL:\033[1;37m "
+    read mfinal
+    echo ""
+    echo -ne "\033[1;32mNOME DO BOTÃO 1(GERADOR SSH):\033[1;37m "
+    read bt1
+    echo ""
+    echo -ne "\033[1;32mNOME DO BOTÃO 2(PERSONALIZADO):\033[1;37m "
+    read bt2
+    echo -ne "\033[1;32mLINK DO BOTÃO 2 (Ex: www.google.com): \033[1;37m "
+    read link2
+    echo ""
+    echo -ne "\033[1;32mNOME DO BOTÃO 3(PERSONALIZADO):\033[1;37m "
+    read bt3
+    echo -ne "\033[1;32mLINK DO BOTÃO 3 (Ex: www.google.com):\033[1;37m "
+    read link3
+    echo ""
+    echo -ne "\033[1;32mNOME DO BOTÃO 4 (BOTAO DE PAGAMENTO PIX):\033[1;37m "
+    read bt4
+    echo -ne "\033[1;32mVALOR DO PIX (EX: R$ 15,00):\033[1;37m "
+    read vl1
+    echo -ne "\033[1;32mCHAVE PIX (QUALQUER TIPO DE CHAVE):\033[1;37m "
+    read pi1
+    echo ""
+    echo -ne "\033[1;32mDURAÇÃO DO TESTE(EM HORAS):\033[1;37m "
+    read dtempo
+    sed -i "s/INFO_ADM/$bvindo/g" $HOME/BOT/botsshteste >/dev/null 2>&1
+    sed -i "s/MSG_FINAL/$mfinal/g" $HOME/BOT/botsshteste >/dev/null 2>&1
+    sed -i "s/BT_INF01/$bt1/g" $HOME/BOT/botsshteste >/dev/null 2>&1
+    sed -i "s/INF02_BT/$bt2/g" $HOME/BOT/botsshteste >/dev/null 2>&1
+    sed -i "s/LINK_BT02/$link2/g" $HOME/BOT/botsshteste >/dev/null 2>&1
+    sed -i "s/BNT03_BT/$bt3/g" $HOME/BOT/botsshteste >/dev/null 2>&1
+    sed -i "s/LK_BT03/$link3/g" $HOME/BOT/botsshteste >/dev/null 2>&1
+    sed -i "s/BN_BT04/$bt4/g" $HOME/BOT/botsshteste >/dev/null 2>&1
+    sed -i "s/VALOR_PIX/$vl1/g" $HOME/BOT/botsshteste >/dev/null 2>&1
+    sed -i "s/CHAVE_PIX/$pi1/g" $HOME/BOT/botsshteste >/dev/null 2>&1
+    sed -i "s/TEMPO_TESTE/$dtempo/g" $HOME/BOT/botsshteste >/dev/null 2>&1
+    clear
+    echo -e "\033[1;32m BOT TESTE CONFIGURADO!"
+    sleep 3
+    bottestee
+}
+newbot () {
+    clear
+    rm -rf $HOME/BOT > /dev/null 2>&1
+    echo -e "\033[1;32m BOT TESTE REMOVIDO!"
+    sleep 3
+    clear
+}
+while true $x != "ok"
+do
+clear
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\E[44;1;37m        INSTALADOR BOT TESTE  by: Elijahssh       \E[0m"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31m ANTES DE ATIVAR O BOT, PRIMEIRO INSTALE NA OPCAO 1"
+echo ""
+echo -e "\033[1;31m  [\033[1;36m 01 \033[1;31m] \033[1;37m• \033[1;33mINSTALAR BOT TESTE"
+echo -e "\033[1;31m  [\033[1;36m 02 \033[1;31m] \033[1;37m• \033[1;33mCONFIGURAR BOT TESTE"
+echo -e "\033[1;31m  [\033[1;36m 03 \033[1;31m] \033[1;37m• \033[1;33mATIVAR/DESATIVAR BOT TESTE"
+echo -e "\033[1;31m  [\033[1;36m 04 \033[1;31m] \033[1;37m• \033[1;33mREMOVER BOT TESTE"
+echo -e "\033[1;31m  [\033[1;36m 00 \033[1;31m] \033[1;37m• \033[1;33mSAIR"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo ""
+echo -ne "\033[1;32mO QUE DESEJA FAZER \033[1;31m?\033[1;37m : "; read x
+
+case "$x" in 
+   1 | 01)
+   clear
+   installbot
+   ;;
+   2 | 02)
+   clear
+   sbot
+   ;;
+   3 | 03)
+   clear
+   nbot
+   ;;
+    4 | 04)
+   clear
+   newbot
+   ;;
+   0 | 00)
+   echo -e "\033[1;31mSaindo...\033[0m"
+   sleep 2
+   clear
+   exit;
+   ;;
+   *)
+   echo -e "\n\033[1;31mOpcao invalida !\033[0m"
+   sleep 2
+esac
+done
+}
+#fim

@@ -1,0 +1,115 @@
+#!/bin/bash
+#=================================================#
+#SCRIPT MONTADO POR: ELIJAHSSH
+#=================================================#
+clear
+rootpass () {
+clear
+echo -e "\E[1;1;37m            BLOQUEAR USUARIO             \E[0m"
+echo -e "\033[01;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mBLOQUEAR USUARIO"
+echo -e "\033[1;31m[\033[1;36m02\033[1;31m] \033[1;37m• \033[1;33mVOLTAR"
+echo -e "\033[01;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -ne "\033[1;37m[ESCOLHA UM NUMERO]\033[1;37m: "; read option
+if [ "$option" = "1" ]; then 
+clear
+echo ""
+echo " DIGITE O NOME DE USUÁRIO QUE DESEJA BLOQUEAR : "
+read lock
+passwd -l $lock
+echo -e "\033[1;34m\033[1;37m\033[1;34m\033[1;37m \033[1;33mUSUÁRIO BLOQUEADO COM SUCESSO \033[0;32m"
+sleep 5s
+lock
+else
+clear
+fi
+if [ "$option" = "2" ]; then
+menu
+else
+clear
+fi
+}
+root () {
+clear
+echo -e "\033[1;31mATENCAO!!\033[0m"
+echo " "
+echo -e "\033[1;33mEssa senha sera usada para entrar no seu servidor
+\033[0m"
+echo -e "\033[1;32mDIGITE A NOVA SENHA \033[1;32m
+para continuar...\033[1;31m\033[0m"
+read  -p : pass
+(echo $pass; echo $pass)|passwd 2>/dev/null
+sleep 1s
+echo -e "\033[1;31mSENHA ALTERADA COM SUCESSO!\033[0m"
+sleep 5s
+cd
+clear
+}
+manual () {
+clear
+echo -e "\E[1;1;37m            DESBLOQUEAR USUARIO             \E[0m"
+echo -e "\033[01;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mDESBLOQUEAR USUARIO"
+echo -e "\033[1;31m[\033[1;36m02\033[1;31m] \033[1;37m• \033[1;33mVOLTAR"
+echo -e "\033[01;34m=━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -ne "\033[1;37m[ESCOLHA UM NUMERO]\033[1;37m: "; read option
+if [ "$option" = "1" ]; then
+clear
+echo ""
+echo " DIGITE O NOME DE USUÁRIO QUE DESEJA DESBLOQUEAR :   "
+read unlock
+passwd -u  $unlock
+echo -e "\033[1;34m\033[1;37m\033[1;34m\033[1;37m \033[1;33mUSUÁRIO DESBLOQUEADO COM SUCESSO \033[0;32m"
+sleep 5s
+unlock
+else
+clear
+fi
+if [ "$option" = "2" ]; then
+menu
+else
+clear
+fi
+}
+while true $x != "ok"
+do
+clear
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\E[44;1;37m               ○ BLOQUEIO DE USUARIO VPN ○            \E[0m"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31m  [\033[1;36m 01 \033[1;31m] \033[1;37m• \033[1;33mBLOQUEAR USUARIO"
+echo -e "\033[1;31m  [\033[1;36m 02 \033[1;31m] \033[1;37m• \033[1;33mDESBLOQUEAR USUARIO"
+echo -e "\033[1;31m  [\033[1;36m 00 \033[1;31m] \033[1;37m• \033[1;33mSAIR"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo ""
+echo -ne "\033[1;32mO QUE DESEJA FAZER \033[1;31m?\033[1;37m : "; read x
+
+case "$x" in 
+   1 | 01)
+   clear
+   rootpass
+   exit;
+   ;;
+   2 | 02)
+   clear
+   manual
+   exit;
+   ;;
+    3 | 03)
+   clear
+   root
+   exit;
+   ;;
+   0 | 00)
+   echo -e "\033[1;31mSaindo...\033[0m"
+   sleep 2
+   clear
+   exit;
+   ;;
+   *)
+   echo -e "\n\033[1;31mOpcao invalida !\033[0m"
+   sleep 2
+esac
+done
+}
+#fim

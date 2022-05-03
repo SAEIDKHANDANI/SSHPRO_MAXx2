@@ -1,0 +1,27 @@
+# !/bin/bash
+# 13/04/2022 - by:Elijahssh
+clear
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[44;1;93m     AGREGADOR DE DNS PESSOAL by: Elijahssh "
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31m Esta funcao permitira mudar o DNS do seu VPS"
+echo ""
+echo -e "\033[1;37m Lembre-se de escolher um DNS Valido.\033[0m"
+echo ""
+echo -e "\033[1;32m1 Digite seu DNS primario: \033[0m"; read -p "   "  dnsp1
+echo ""
+echo -e "\033[1;32m2 Digite seu DNS segundario: \033[0m"; read -p "   "  dnsp2
+echo ""
+read -p " Tem certeza de continuar?  [ s | n ]: " dns   
+if [[ "$dns" = s || "$dns" = S ]];then
+echo -e "namesever $dnsp1
+nameserver $dnsp2" >> /etc/resolv.conf
+clear
+echo -e "\033[1;32m DNS ADICIONADO COM SUCESSO \033[0m"
+sleep 2
+    cat /dev/null > ~/.bash_history && history -c && exit 0
+else
+    echo -e "\033[1;32mOk retornando ao menu\033[1;33m"
+    sleep 3
+    menu
+fi
