@@ -506,19 +506,20 @@ echo ""
 echo -e "\E[1;1;37m           >> ADMINISTRAR CONTAS <<       \E[0m"
 echo ""
 echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m> \033[1;33mCRIAR USUARIO
-\033[1;31m[\033[1;36m02\033[1;31m] \033[1;37m> \033[1;33mCRIAR USUARIO TESTE
-\033[1;31m[\033[1;36m03\033[1;31m] \033[1;37m\033[1;37m> \033[1;33mREMOVER USUARIO
-\033[1;31m[\033[1;36m04\033[1;31m] \033[1;37m> \033[1;33mMONITOR ONLINE
-\033[1;31m[\033[1;36m05\033[1;31m] \033[1;37m> \033[1;33mMUDAR DATA
-\033[1;31m[\033[1;36m06\033[1;31m] \033[1;37m> \033[1;33mBLOQUEAR USUARIO
-\033[1;31m[\033[1;36m07\033[1;31m] \033[1;37m> \033[1;33mMUDAR SENHA
-\033[1;31m[\033[1;36m08\033[1;31m] \033[1;37m> \033[1;33mALTERAR LIMITE
-\033[1;31m[\033[1;36m09\033[1;31m] \033[1;37m> \033[1;33mRELATORIO DE USUARIOS
-\033[1;31m[\033[1;36m10\033[1;31m] \033[1;37m> \033[1;33mBACKUP
-\033[1;31m[\033[1;36m11\033[1;31m] \033[1;37m> \033[1;33mREMOVER EXPIRADOS\033[1;31m"
+\033[1;31m[\033[1;36m02\033[1;31m] \033[1;37m> \033[1;33mV2RAY
+\033[1;31m[\033[1;36m03\033[1;31m] \033[1;37m> \033[1;33mCRIAR USUARIO TESTE
+\033[1;31m[\033[1;36m04\033[1;31m] \033[1;37m\033[1;37m> \033[1;33mREMOVER USUARIO
+\033[1;31m[\033[1;36m05\033[1;31m] \033[1;37m> \033[1;33mMONITOR ONLINE
+\033[1;31m[\033[1;36m06\033[1;31m] \033[1;37m> \033[1;33mMUDAR DATA
+\033[1;31m[\033[1;36m07\033[1;31m] \033[1;37m> \033[1;33mBLOQUEAR USUARIO
+\033[1;31m[\033[1;36m08\033[1;31m] \033[1;37m> \033[1;33mMUDAR SENHA
+\033[1;31m[\033[1;36m09\033[1;31m] \033[1;37m> \033[1;33mALTERAR LIMITE
+\033[1;31m[\033[1;36m10\033[1;31m] \033[1;37m> \033[1;33mRELATORIO DE USUARIOS
+\033[1;31m[\033[1;36m11\033[1;31m] \033[1;37m> \033[1;33mBACKUP
+\033[1;31m[\033[1;36m12\033[1;31m] \033[1;37m> \033[1;33mREMOVER EXPIRADOS\033[1;31m"
 echo ""
 echo ""
-echo -e "\033[1;31m[\033[1;36m12\033[1;31m] \033[1;37m> \033[41;1;37m VOLTAR \033[0m      \033[1;31m[\033[1;36m00\033[1;31m] \033[1;37m> \033[41;1;37m SAIR "
+echo -e "\033[1;31m[\033[1;36m13\033[1;31m] \033[1;37m> \033[41;1;37m VOLTAR \033[0m      \033[1;31m[\033[1;36m00\033[1;31m] \033[1;37m> \033[41;1;37m SAIR "
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[44;1;37m                   SSH PRO MAX                   \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -532,54 +533,58 @@ case "$x" in
    ;;
    2 | 02)
    clear
+   .criar
+   ;;
+   3 | 03)
+   clear
    criarteste
    echo -ne "\n\033[1;31mENTER \033[1;33mpara retornar ao \033[1;32mMENU!\033[0m"; read
    ;;
-   3 | 03)
+   4 | 04)
    clear
    remover
    sleep 3
    ;;
-   4 | 04)
+   5 | 05)
    clear
    sshmonitor
    echo -ne "\n\033[1;31mENTER \033[1;33mpara retornar ao \033[1;32mMENU!\033[0m"; read
    ;;      
-   5 | 05)
+   6 | 06)
    clear
    mudardata
    sleep 3
    ;;
-   6 | 06)
+   7 | 07)
    clear
    blockuser
    ;;
-   7 | 07)
+   8 | 08)
    clear
    alterarsenha
    sleep 3
    ;;
-   8 | 08)
+   9 | 09)
    clear
    alterarlimite
    sleep 3
    ;;
-   9 | 09)
+   10)
    clear
    infousers
    echo -ne "\n\033[1;31mENTER \033[1;33mpara retornar ao \033[1;32mMENU!\033[0m"; read
    ;;
-   10)
+   11)
    userbackup
    echo -ne "\n\033[1;31mENTER \033[1;33mpara retornar ao \033[1;32mMENU!\033[0m"; read
    ;;
-   11)
+   12)
    clear
    expcleaner
    echo ""
    sleep 3
    ;;
-   12)
+   13)
    menu
    ;;
    0|00)
