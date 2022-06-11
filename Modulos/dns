@@ -14,8 +14,8 @@ echo -e "\033[1;32m2 Digite seu DNS segundario: \033[0m"; read -p "   "  dnsp2
 echo ""
 read -p " Tem certeza de continuar?  [ s | n ]: " dns   
 if [[ "$dns" = s || "$dns" = S ]];then
-echo -e "namesever $dnsp1
-nameserver $dnsp2" >> /etc/resolv.conf
+echo "servidor de nomes $dnsp1" > /etc/resolv.conf
+echo "servidor de nomes $dnsp2" >> /etc/resolv.conf
 clear
 echo -e "\033[1;32m DNS ADICIONADO COM SUCESSO \033[0m"
 sleep 2
