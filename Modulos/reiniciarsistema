@@ -1,3 +1,82 @@
 #!/bin/bash
+# 13/04/2022 - by:Elijahssh
+clear
+reset () {
 echo -e "\033[1;31mREINICIANDO...\033[0m"
 shutdown -r now
+}
+age () {
+echo -e "\033[1;32m1 Adicione o horario: \033[0m"; read -p "   "  dnsp1
+echo ""
+read -p " Tem certeza de continuar?  [ s | n ]: " dns   
+if [[ "$dns" = s || "$dns" = S ]];then
+sudo shutdown -r $dnsp1
+clear
+echo -e "\033[1;32mAGENDADO COM SUCESSO \033[0m"
+sleep 2
+menu
+fi
+}
+hora () {
+echo -e "\033[1;32m1 Adicione os minutos: \033[0m"; read -p "   "  dnsp1
+echo ""
+read -p " Tem certeza de continuar?  [ s | n ]: " dns   
+if [[ "$dns" = s || "$dns" = S ]];then
+sudo shutdown -r +$dnsp1
+clear
+echo -e "\033[1;32mAGENDADO COM SUCESSO \033[0m"
+sleep 2
+menu
+fi
+}
+can () {
+sudo shutdown -c
+clear
+menu
+}
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[44;1;93m     CONFIGURACAO DE AUTO RESET by: Elijahssh "
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31m  [\033[1;36m 01 \033[1;31m] \033[1;37m• \033[1;33mREINICIAR AGORA"
+echo -e "\033[1;31m  [\033[1;36m 02 \033[1;31m] \033[1;37m• \033[1;33mAGENDAR HORARIO"
+echo -e "\033[1;31m  [\033[1;36m 03 \033[1;31m] \033[1;37m• \033[1;33mAGENDAR MINUTOS"
+echo -e "\033[1;31m  [\033[1;36m 04 \033[1;31m] \033[1;37m• \033[1;33mCANCELAR AGENDAMENTO"
+echo -e "\033[1;31m  [\033[1;36m 00 \033[1;31m] \033[1;37m• \033[1;33mSAIR"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo ""
+echo -ne "\033[1;32mO QUE DESEJA FAZER \033[1;31m?\033[1;37m : "; read x
+
+case "$x" in 
+   1 | 01)
+   clear
+   reset
+   exit;
+   ;;
+   2 | 02)
+   clear
+   age
+   exit;
+   ;;
+   3 | 03)
+   clear
+   hora
+   exit;
+   ;;
+    4 | 04)
+   clear
+   can
+   exit;
+   ;;
+   0 | 00)
+   echo -e "\033[1;31mSaindo...\033[0m"
+   sleep 2
+   clear
+   exit;
+   ;;
+   *)
+   echo -e "\n\033[1;31mOpcao invalida !\033[0m"
+   sleep 2
+esac
+done
+}
+#fim
