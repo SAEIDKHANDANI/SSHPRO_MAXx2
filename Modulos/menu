@@ -226,7 +226,7 @@ _userexp=$(printf '%-5s' "$_expuser")
 _tuser=$(awk -F: '$3>=1000 {print $1}' /etc/passwd | grep -v nobody | wc -l)
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;37m 🌐 SSH PRO MAX by:@Elijahssh 🌐 \E[0m   \E[1;37m( VERSAO 2.0 )"
+echo -e "\E[44;1;37m 🌐 SSH PRO MAX by:@Elijahssh 🌐 \E[0m   \E[1;31m( VERSAO 2.5 )"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[1;1;37m          ❗INFORMACAO DO SERVIDOR❗       \E[0m"
 echo -e "\033[0;34m===================================================\033[0m"
@@ -234,7 +234,7 @@ echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESSADOR "
 echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mTOTAL: \033[1;37m$_ram \033[1;31mNUCLEOS: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mHORA: \033[1;37m$_hora     \033[1;31mEM USO: \033[1;37m$_usor \033[1;31mEM USO: \033[1;37m$_usop\033[0m"
 echo -e "\033[0;34m===================================================\033[0m"
-echo -e "\033[1;34mLIMITER \033[1;37m$stsl \033[1;37m| \033[1;34mBAD VPN PRO \033[1;37m$stsu
+echo -e "\033[1;34mLIMITER \033[1;37m$stsl \033[1;37m      | \033[1;34mBAD VPN PRO \033[1;37m$stsu
 \033[1;34mAUTO EXECUCAO \033[1;37m$autm \033[1;37m| \033[1;34mBLOCK TORRENT \033[1;37m$stsf
 \033[1;34mBOT TELEGRAM \033[1;37m$stsbot \033[1;37m| \033[1;34mBOT TESTE \033[1;37m$stsbotteste"
 echo -e "\033[0;34m===================================================\033[0m"
@@ -251,12 +251,13 @@ echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m> \033[1;33mMODO DE CONEXA
 \033[1;31m[\033[1;36m06\033[1;31m] \033[1;37m> \033[1;33mBOT TELEGRAM $stsbot
 \033[1;31m[\033[1;36m07\033[1;31m] \033[1;37m> \033[1;33mBOT TESTE $stsbotteste
 \033[1;31m[\033[1;36m08\033[1;31m] \033[1;37m> \033[1;33mATUALIZAR CERTIFICADO SSL
-\033[1;31m[\033[1;36m09\033[1;31m] \033[1;37m> \033[1;33mBLOCK SITE
+\033[1;31m[\033[1;36m09\033[1;31m] \033[1;37m> \033[1;33mBLOQUEADOR FIREWALL
 \033[1;31m[\033[1;36m10\033[1;31m] \033[1;37m> \033[1;33mTCPTWEAKER
-\033[1;31m[\033[1;36m11\033[1;31m] \033[1;37m> \033[1;33mMUDAR DNS\033[1;31m"
+\033[1;31m[\033[1;36m11\033[1;31m] \033[1;37m> \033[1;33mMUDAR DNS
+\033[1;31m[\033[1;36m12\033[1;31m] \033[1;37m> \033[1;33mCHECKUSER\033[1;31m"
 echo ""
 echo ""
-echo -e "\033[1;31m[\033[1;36m12\033[1;31m] \033[1;37m> \033[41;1;37m VOLTAR \033[0m      \033[1;31m[\033[1;36m00\033[1;31m] \033[1;37m> \033[41;1;37m SAIR "
+echo -e "\033[1;31m[\033[1;36m13\033[1;31m] \033[1;37m> \033[41;1;37m VOLTAR \033[0m\E[47;1;37m \E[0m    \033[1;31m[\033[1;36m00\033[1;31m] \033[1;37m> \033[41;1;37m SAIR \E[47;1;37m \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[44;1;37m                   SSH PRO MAX                   \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -291,7 +292,7 @@ case "$x" in
    addhost
    ;;
    9 | 09)
-   blocksite
+   blocksh
    ;;
    10)
    clear
@@ -350,7 +351,7 @@ _userexp=$(printf '%-5s' "$_expuser")
 _tuser=$(awk -F: '$3>=1000 {print $1}' /etc/passwd | grep -v nobody | wc -l)
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;37m 🌐 SSH PRO MAX by:@Elijahssh 🌐 \E[0m   \E[1;37m( VERSAO 2.0 )"
+echo -e "\E[44;1;37m 🌐 SSH PRO MAX by:@Elijahssh 🌐 \E[0m   \E[1;31m( VERSAO 2.5 )"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[1;1;37m          ❗INFORMACAO DO SERVIDOR❗       \E[0m"
 echo -e "\033[0;34m===================================================\033[0m"
@@ -358,7 +359,7 @@ echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESSADOR "
 echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mTOTAL: \033[1;37m$_ram \033[1;31mNUCLEOS: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mHORA: \033[1;37m$_hora     \033[1;31mEM USO: \033[1;37m$_usor \033[1;31mEM USO: \033[1;37m$_usop\033[0m"
 echo -e "\033[0;34m===================================================\033[0m"
-echo -e "\033[1;34mLIMITER \033[1;37m$stsl \033[1;37m| \033[1;34mBAD VPN PRO \033[1;37m$stsu
+echo -e "\033[1;34mLIMITER \033[1;37m$stsl \033[1;37m      | \033[1;34mBAD VPN PRO \033[1;37m$stsu
 \033[1;34mAUTO EXECUCAO \033[1;37m$autm \033[1;37m| \033[1;34mBLOCK TORRENT \033[1;37m$stsf
 \033[1;34mBOT TELEGRAM \033[1;37m$stsbot \033[1;37m| \033[1;34mBOT TESTE \033[1;37m$stsbotteste"
 echo -e "\033[0;34m===================================================\033[0m"
@@ -381,7 +382,7 @@ echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m> \033[1;33mBANNER
 \033[1;31m[\033[1;36m12\033[1;31m] \033[1;37m> \033[1;33mGERENCIADOR ROOT\033[1;31m"
 echo ""
 echo ""
-echo -e "\033[1;31m[\033[1;36m13\033[1;31m] \033[1;37m> \033[41;1;37m VOLTAR \033[0m      \033[1;31m[\033[1;36m00\033[1;31m] \033[1;37m> \033[41;1;37m SAIR "
+echo -e "\033[1;31m[\033[1;36m13\033[1;31m] \033[1;37m> \033[41;1;37m VOLTAR \033[0m\E[47;1;37m \E[0m    \033[1;31m[\033[1;36m00\033[1;31m] \033[1;37m> \033[41;1;37m SAIR \E[47;1;37m \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[44;1;37m                   SSH PRO MAX                   \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -488,7 +489,7 @@ _userexp=$(printf '%-5s' "$_expuser")
 _tuser=$(awk -F: '$3>=1000 {print $1}' /etc/passwd | grep -v nobody | wc -l)
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;37m 🌐 SSH PRO MAX by:@Elijahssh 🌐 \E[0m   \E[1;37m( VERSAO 2.0 )"
+echo -e "\E[44;1;37m 🌐 SSH PRO MAX by:@Elijahssh 🌐 \E[0m   \E[1;31m( VERSAO 2.5 )"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[1;1;37m          ❗INFORMACAO DO SERVIDOR❗       \E[0m"
 echo -e "\033[0;34m===================================================\033[0m"
@@ -496,7 +497,7 @@ echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESSADOR "
 echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mTOTAL: \033[1;37m$_ram \033[1;31mNUCLEOS: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mHORA: \033[1;37m$_hora     \033[1;31mEM USO: \033[1;37m$_usor \033[1;31mEM USO: \033[1;37m$_usop\033[0m"
 echo -e "\033[0;34m===================================================\033[0m"
-echo -e "\033[1;34mLIMITER \033[1;37m$stsl \033[1;37m| \033[1;34mBAD VPN PRO \033[1;37m$stsu
+echo -e "\033[1;34mLIMITER \033[1;37m$stsl \033[1;37m      | \033[1;34mBAD VPN PRO \033[1;37m$stsu
 \033[1;34mAUTO EXECUCAO \033[1;37m$autm \033[1;37m| \033[1;34mBLOCK TORRENT \033[1;37m$stsf
 \033[1;34mBOT TELEGRAM \033[1;37m$stsbot \033[1;37m| \033[1;34mBOT TESTE \033[1;37m$stsbotteste"
 echo -e "\033[0;34m===================================================\033[0m"
@@ -519,7 +520,7 @@ echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m> \033[1;33mCRIAR USUARIO
 \033[1;31m[\033[1;36m12\033[1;31m] \033[1;37m> \033[1;33mREMOVER EXPIRADOS\033[1;31m"
 echo ""
 echo ""
-echo -e "\033[1;31m[\033[1;36m13\033[1;31m] \033[1;37m> \033[41;1;37m VOLTAR \033[0m      \033[1;31m[\033[1;36m00\033[1;31m] \033[1;37m> \033[41;1;37m SAIR "
+echo -e "\033[1;31m[\033[1;36m13\033[1;31m] \033[1;37m> \033[41;1;37m VOLTAR \033[0m\E[47;1;37m \E[0m    \033[1;31m[\033[1;36m00\033[1;31m] \033[1;37m> \033[41;1;37m SAIR \E[47;1;37m \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[44;1;37m                   SSH PRO MAX                   \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -636,7 +637,7 @@ _userexp=$(printf '%-5s' "$_expuser")
 _tuser=$(awk -F: '$3>=1000 {print $1}' /etc/passwd | grep -v nobody | wc -l)
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;37m 🌐 SSH PRO MAX by:@Elijahssh 🌐 \E[0m   \E[1;37m( VERSAO 2.0 )"
+echo -e "\E[44;1;37m 🌐 SSH PRO MAX by:@Elijahssh 🌐 \E[0m   \E[1;31m( VERSAO 2.5 )"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[1;1;37m          ❗INFORMACAO DO SERVIDOR❗       \E[0m"
 echo -e "\033[0;34m===================================================\033[0m"
@@ -644,7 +645,7 @@ echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESSADOR "
 echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mTOTAL: \033[1;37m$_ram \033[1;31mNUCLEOS: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mHORA: \033[1;37m$_hora     \033[1;31mEM USO: \033[1;37m$_usor \033[1;31mEM USO: \033[1;37m$_usop\033[0m"
 echo -e "\033[0;34m===================================================\033[0m"
-echo -e "\033[1;34mLIMITER \033[1;37m$stsl \033[1;37m| \033[1;34mBAD VPN PRO \033[1;37m$stsu
+echo -e "\033[1;34mLIMITER \033[1;37m$stsl \033[1;37m      | \033[1;34mBAD VPN PRO \033[1;37m$stsu
 \033[1;34mAUTO EXECUCAO \033[1;37m$autm \033[1;37m| \033[1;34mBLOCK TORRENT \033[1;37m$stsf
 \033[1;34mBOT TELEGRAM \033[1;37m$stsbot \033[1;37m| \033[1;34mBOT TESTE \033[1;37m$stsbotteste"
 echo -e "\033[0;34m===================================================\033[0m"
@@ -653,14 +654,13 @@ echo -e "\033[0;34m===================================================\033[0m"
 echo ""
 echo -e "\E[1;1;37m           >> ESCOLHA UMA OPCAO ! <<       \E[0m"
 echo ""
-echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m> \033[41;1;37m ADMINISTRAR CONTAS \033[0m
-
-\033[1;31m[\033[1;36m02\033[1;31m] \033[1;37m> \033[41;1;37m CONFIGURACOES DO SERVIDOR \033[0m
-
-\033[1;31m[\033[1;36m03\033[1;31m] \033[1;37m> \033[41;1;37m CONEXOES SSH \033[0m
-
-
-\033[1;31m[\033[1;36m00\033[1;31m] \033[1;37m> \033[41;1;37m SAIR \033[0m"
+echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m> \E[41;1;37m ADMINISTRAR CONTAS \E[0m\E[47;1;37m \E[0m"
+echo ""
+echo -e "\033[1;31m[\033[1;36m02\033[1;31m] \033[1;37m> \E[41;1;37m CONFIGURACOES DO SERVIDOR \E[0m\E[47;1;37m \E[0m"
+echo ""
+echo -e "\033[1;31m[\033[1;36m03\033[1;31m] \033[1;37m> \E[41;1;37m CONEXOES SSH \E[0m\E[47;1;37m \E[0m"
+echo ""
+echo -e "\033[1;31m[\033[1;36m00\033[1;31m] \033[1;37m> \E[41;1;37m SAIR \E[0m\E[47;1;37m \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[44;1;37m                   SSH PRO MAX                   \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
