@@ -1,0 +1,33 @@
+#!/bin/bash
+    clear
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\E[44;1;37m           GERENCIAR CHECKUSER              "
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+
+    echo -e "\033[01;31m ANTES DE GERENCIAR O CHECKUSER INSTALE OS RECURSOS"
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+ echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mINICIAR CHECKUSER"
+echo -e "\033[1;31m[\033[1;36m02\033[1;31m] \033[1;37m• \033[1;33mINSTALAR RECURSOS"
+echo -e "\033[1;31m[\033[1;36m00\033[1;31m] \033[1;37m• \033[1;33mVOLTAR"
+    tput civis
+echo -ne "\033[1;32mOQUE DESEJA FAZER \033[1;31m?\033[1;37m "
+	read x
+case "$x" in
+			1 | 01)
+				initcheck
+				;;
+			2 | 02)
+				instcheck.sh
+				;;
+			0 | 00)
+				clear
+				menu
+				;;
+			*)
+				echo -e "\033[1;31mOpcao invalida !\033[0m"
+				sleep 2
+				;;
+			esac
+		done
+	}
+}
