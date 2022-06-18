@@ -303,8 +303,10 @@ case "$x" in
    dns
    ;;
    12)
-   menu
+   geren
    ;;
+   13)
+   menu
    0|00)
    echo -e "\033[1;31mSaindo...\033[0m"
    sleep 2
