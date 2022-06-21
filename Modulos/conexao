@@ -6,11 +6,7 @@
 #	CONTATO TELEGRAM:	http://t.me/Elijahssh
 #	CANAL TELEGRAM:	http://t.me/Elijahssh
 #====================================================
-mkdir /etc/rec > /dev/null 2>&1
-echo -e 'By: @KIRITO_SSH' > /etc/rec/licence
-echo -e 'By: @KIRITO_SSH' > /usr/lib/licence
-mkdir /usr/lib/checkuser > /dev/null 2>&1
-[[ $(awk -F" " '{print $2}' /usr/lib/licence) == "@KIRITO_SSH" ]] && {
+[[ $(awk -F" " '{print $2}' /usr/lib/licence) == "@ELIJAH_SSH" ]] && {
 	ram1=$(free -h | grep -i mem | awk {'print $2'})
 	ram2=$(free -h | grep -i mem | awk {'print $4'})
 	ram3=$(free -h | grep -i mem | awk {'print $3'})
