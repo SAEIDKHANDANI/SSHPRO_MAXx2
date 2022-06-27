@@ -6,7 +6,6 @@
 #	CANAL TELEGRAM:	http://t.me/Elijahssh
 #====================================================
 clear
-[[ $(awk -F" " '{print $2}' /usr/lib/licence) != "@ELIJAH_SSH" ]] && exit 0
 fun_bar() {
     comando[0]="$1"
     comando[1]="$2"
